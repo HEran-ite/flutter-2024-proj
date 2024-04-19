@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hotel_booking/presentation/screens/admin_page.dart';
-import 'package:hotel_booking/presentation/screens/home_page.dart';
+import 'package:flutter_application_mysubmission/presentation/screens/onboarding_screen.dart';
+import 'package:flutter_application_mysubmission/presentation/screens/status_page.dart';
 
 
 
@@ -16,12 +16,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      routes: {
-        '/home_page': (context) => HomePage(),
-        '/admin_page': (context) => AdminPage(),
-
+       routes: {
+        
+        '/status_page': (context) => StatusPage(),
+        '/intro_page': (context) => onBoardingScreen()
       },
-      initialRoute: '/admin_page',
+      
+      initialRoute: '/intro_page',
     );
   }
 }
