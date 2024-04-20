@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hotel_booking/presentation/screens/admin_page.dart';
+import 'package:hotel_booking/presentation/screens/booking_page.dart';
 import 'package:hotel_booking/presentation/screens/home_page.dart';
 import 'package:hotel_booking/presentation/screens/login_page.dart';
 import 'package:hotel_booking/presentation/screens/onboarding_screen.dart';
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
         '/intro_page': (context) => onBoardingScreen(),
         '/signup_page': (context) => SignUpPage(),
         '/login_page':  (context) => LoginPage(),
+        '/booking_page': (context) => BookingPage(),
         
 
       },
