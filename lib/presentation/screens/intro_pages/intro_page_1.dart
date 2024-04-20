@@ -1,6 +1,5 @@
-// import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 
 
 
@@ -34,7 +33,7 @@ class IntroPage1 extends StatelessWidget{
             SizedBox(width: 10,),
             Text(
               'Oasis', 
-              style: GoogleFonts.oleoScriptSwashCaps(
+              style: TextStyle(
                 fontSize:65,
                 fontWeight:FontWeight.bold,
                 color: Color.fromARGB(255, 95, 65, 65),
@@ -53,7 +52,7 @@ class IntroPage1 extends StatelessWidget{
             ),
             Text(
               'Oasis',
-              style:GoogleFonts.oleoScriptSwashCaps(
+              style:TextStyle(
                 fontSize:36,
                 fontWeight:FontWeight.bold,
                 color:Color.fromARGB(255, 95, 65, 65)

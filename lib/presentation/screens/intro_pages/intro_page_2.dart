@@ -1,6 +1,6 @@
 // import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 
 
 class IntroPage2 extends StatelessWidget{
@@ -28,7 +28,7 @@ class IntroPage2 extends StatelessWidget{
             SizedBox(height:20),
              Text(
       'Escape to Tranquility',
-      style: GoogleFonts.pacifico(
+      style: TextStyle(
         fontSize: 32,
         fontWeight: FontWeight.w300,
         color: Color.fromARGB(255, 40, 41, 42),
@@ -37,7 +37,7 @@ class IntroPage2 extends StatelessWidget{
     SizedBox(height: 20),
     Text(
       'Luxury stays at your fingertips.',
-      style: GoogleFonts.lato(
+      style: TextStyle(
         fontSize: 20,
         fontWeight: FontWeight.normal,
         color: Color.fromARGB(255, 79, 68, 68),
@@ -47,7 +47,7 @@ class IntroPage2 extends StatelessWidget{
     SizedBox(height: 10),
     Text(
       'Discover exquisite accommodations.',
-      style: GoogleFonts.lato(
+      style: TextStyle(
         fontSize: 20,
         fontWeight: FontWeight.normal,
         color: Colors.grey[700],
@@ -57,7 +57,7 @@ class IntroPage2 extends StatelessWidget{
     SizedBox(height: 10),
     Text(
       'Book your dream stay today!',
-      style: GoogleFonts.lato(
+      style: TextStyle(
         fontSize: 20,
         fontWeight: FontWeight.normal,
         color: Colors.grey[700],

@@ -1,6 +1,6 @@
 // import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 
 
 class IntroPage3 extends StatelessWidget{
@@ -23,12 +23,12 @@ class IntroPage3 extends StatelessWidget{
         child:Column (
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-           
+            
 
             SizedBox(height:20),
-            Text(
-      'Discover Exclusive Offers',
-      style: GoogleFonts.pacifico(
+             Text(
+      'Escape to Tranquility',
+      style: TextStyle(
         fontSize: 32,
         fontWeight: FontWeight.w300,
         color: Color.fromARGB(255, 40, 41, 42),
@@ -36,8 +36,18 @@ class IntroPage3 extends StatelessWidget{
     ),
     SizedBox(height: 20),
     Text(
-      'Unlock member-only deals.',
-      style: GoogleFonts.lato(
+      'Luxury stays at your fingertips.',
+      style: TextStyle(
+        fontSize: 20,
+        fontWeight: FontWeight.normal,
+        color: Color.fromARGB(255, 79, 68, 68),
+      ),
+      textAlign: TextAlign.center,
+    ),
+    SizedBox(height: 10),
+    Text(
+      'Discover exquisite accommodations.',
+      style: TextStyle(
         fontSize: 20,
         fontWeight: FontWeight.normal,
         color: Colors.grey[700],
@@ -46,24 +56,15 @@ class IntroPage3 extends StatelessWidget{
     ),
     SizedBox(height: 10),
     Text(
-      'Indulge in gourmet dining.',
-      style: GoogleFonts.lato(
+      'Book your dream stay today!',
+      style: TextStyle(
         fontSize: 20,
         fontWeight: FontWeight.normal,
         color: Colors.grey[700],
       ),
       textAlign: TextAlign.center,
     ),
-    SizedBox(height: 10),
-    Text(
-      'Experience excellence with us!',
-      style: GoogleFonts.lato(
-        fontSize: 20,
-        fontWeight: FontWeight.normal,
-        color: Colors.grey[700],
-      ),
-      textAlign: TextAlign.center,
-    ),
+
           ],
           ),)
     );

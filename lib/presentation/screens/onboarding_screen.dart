@@ -2,10 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
-import 'intro_pages/intro_page_1.dart';
-import 'intro_pages/intro_page_2.dart';
-import 'intro_pages/intro_page_3.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:hotel_booking/presentation/screens/intro_pages/intro_page_1.dart';
+import 'package:hotel_booking/presentation/screens/intro_pages/intro_page_2.dart';
+import 'package:hotel_booking/presentation/screens/intro_pages/intro_page_3.dart';
+
 
 class onBoardingScreen extends StatefulWidget{
   const onBoardingScreen ({Key? key}): super(key:key);
@@ -55,14 +55,7 @@ class _OnBoardingScreenState extends State<onBoardingScreen>{
               child: Text('Skip',style: TextStyle(color:Color.fromARGB(255, 95, 65, 65),fontWeight: FontWeight.bold ,fontSize:17))),
 
            // dot indicator
-            SmoothPageIndicator(controller:_controller, count: 3,
-            effect: SlideEffect(
-                activeDotColor: Color.fromARGB(255, 95, 65, 65), // Change the color here
-                dotColor: Colors.grey,
-                dotHeight: 8,
-                dotWidth: 8,
-              ),
-            ),
+            
 
 
 
