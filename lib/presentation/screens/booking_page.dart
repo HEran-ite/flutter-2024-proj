@@ -108,4 +108,20 @@ class BookingPage extends StatelessWidget {
       ),
     );
   }
+    // Function to show date picker dialog
+  void _showDatePickerDialog(BuildContext context) async {
+    DateTime? selectedDate = await showDatePicker(
+      
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime.now(),
+      lastDate: DateTime.now().add(Duration(days: 365)),
+    );
+
+    if (selectedDate != null) {
+      print('Selected date: $selectedDate');
+    }
+  }
 }
+
+
