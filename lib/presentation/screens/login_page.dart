@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:hotel_booking/presentation/widgets/textfeild.dart';
 
@@ -7,14 +6,14 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Determine screen size
+         // Determine screen size
     Size screenSize = MediaQuery.of(context).size;
 
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 252, 241, 230),
       body: SingleChildScrollView(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center, // Center the column
+          mainAxisAlignment: MainAxisAlignment.center,   // Center the column
           children: <Widget>[
             Container(
               width: screenSize.width, // Use screen width
@@ -32,7 +31,7 @@ class LoginPage extends StatelessWidget {
             const SizedBox(height: 10), // Proper spacing
             // Title/Login Text
             const Text(
-              'Login',
+              'Log in',
               style: TextStyle(
                 color: Color.fromARGB(255, 95, 65, 65),
                 fontSize: 36,
