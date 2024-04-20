@@ -1,13 +1,7 @@
-import 'dart:io';
-
-import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:hotel_booking/presentation/widgets/appbar.dart';
 import 'package:hotel_booking/presentation/test_input/datas.dart';
 import 'package:hotel_booking/presentation/widgets/drawer.dart';
-
-
 
 class AdminPage extends StatefulWidget {
   const AdminPage({Key? key}) : super(key: key);
@@ -17,6 +11,8 @@ class AdminPage extends StatefulWidget {
 }
 
 class _AdminPageState extends State<AdminPage> {
+  int _currentImageIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,91 +34,19 @@ class _AdminPageState extends State<AdminPage> {
                   ),
                 ),
                 const SizedBox(height: 20),
-                CarouselSlider.builder(
-                  itemCount: category['images'].length,
-                  options: CarouselOptions(
-                    height: 465,
-                    enlargeCenterPage: true,
-                    aspectRatio: 16 / 9,
-                    viewportFraction: 0.8,
+                SizedBox(
+                  height: 465,
+                  child: PageView.builder(
+                    itemCount: category['images'].length,
+                    onPageChanged: (index) {
+                      setState(() {
+                        _currentImageIndex = index;
+                      });
+                    },
+                    itemBuilder: (context, index) {
+                      return _buildCard(category, index);
+                    },
                   ),
-                  itemBuilder: (BuildContext context, int index, int realIndex) {
-                    return Card(
-                      color: const Color.fromARGB(255, 244, 229, 212),
-                      elevation: 5.0,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Image.asset(
-                              category['images'][index],
-                              height: 200,
-                              width: double.infinity,
-                              fit: BoxFit.cover,
-                            ),
-                            const Divider(color: Color.fromARGB(255, 208, 188, 188)),
-                            Text(
-                              category['descriptions'][index],
-                              textAlign: TextAlign.center,
-                              style: const TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18,
-                                color: Color.fromARGB(255, 95, 65, 65),
-                              ),
-                            ),
-                            Text(
-                              'Price: \$${category['prices'][index]}',
-                              style: const TextStyle(
-                                color: Color.fromARGB(255, 95, 65, 65),
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                ElevatedButton(
-                                  onPressed: () => _showEditDialog(context, category, index),
-                                  child: const Text(
-                                    'Edit',
-                                    style: TextStyle(color: Colors.blue),
-                                  ),
-                                  style: ButtonStyle(
-                                    backgroundColor: MaterialStateProperty.all<Color>(
-                                      Color.fromARGB(255, 231, 228, 226),
-                                    ),
-                                  ),
-                                ),
-                                const SizedBox(width: 20),
-                                ElevatedButton(
-                                  onPressed: () {
-                                    setState(() {
-                                      category['images'].removeAt(index);
-                                      category['descriptions'].removeAt(index);
-                                      category['prices'].removeAt(index);
-                                    });
-                                  },
-                                  child: const Text(
-                                    'Delete',
-                                    style: TextStyle(color: Color.fromARGB(255, 243, 33, 33)),
-                                  ),
-                                  style: ButtonStyle(
-                                    backgroundColor: MaterialStateProperty.all<Color>(
-                                      Color.fromARGB(255, 231, 228, 226),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    );
-                  },
                 ),
               ],
             );
@@ -139,6 +63,87 @@ class _AdminPageState extends State<AdminPage> {
       ),
     );
   }
+
+  Widget _buildCard(Map<String, dynamic> category, int index) {
+    return Card(
+      margin: EdgeInsets.symmetric(horizontal: 40),
+      color: const Color.fromARGB(255, 244, 229, 212),
+      elevation: 5.0,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(15.0),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Image.asset(
+              category['images'][index],
+              height: 200,
+              width: double.infinity,
+              fit: BoxFit.cover,
+            ),
+            const Divider(color: Color.fromARGB(255, 208, 188, 188)),
+            Text(
+              category['descriptions'][index],
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+                color: Color.fromARGB(255, 95, 65, 65),
+              ),
+            ),
+            Text(
+              'Price: \$${category['prices'][index]}',
+              style: const TextStyle(
+                color: Color.fromARGB(255, 95, 65, 65),
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                  onPressed: () =>
+                      _showEditDialog(context, category, index),
+                  child: const Text(
+                    'Edit',
+                    style: TextStyle(color: Colors.blue),
+                  ),
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all<Color>(
+                      Color.fromARGB(255, 231, 228, 226),
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 20),
+                ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      category['images'].removeAt(index);
+                      category['descriptions'].removeAt(index);
+                      category['prices'].removeAt(index);
+                    });
+                  },
+                  child: const Text(
+                    'Delete',
+                    style: TextStyle(color: Color.fromARGB(255, 243, 33, 33)),
+                  ),
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all<Color>(
+                      Color.fromARGB(255, 231, 228, 226),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
 
  void _showAddNewDialog(BuildContext context) {
     TextEditingController titleController = TextEditingController();
@@ -158,36 +163,11 @@ class _AdminPageState extends State<AdminPage> {
                         children: [
                             ElevatedButton(
                                 onPressed: () async {
-                                    // Let the user pick an image file
-                                    FilePickerResult? result = await FilePicker.platform.pickFiles(
-                                        type: FileType.image, // Allow only images
-                                    );
-
-                                    // If a file was selected, update the imagePath variable
-                                    if (result != null) {
-                                        PlatformFile file = result.files.first;
-                                        setState(() {
-                                            imagePath = file.path; // Store the image path in state
-                                        });
-                                    }
+              
                                 },
                                 child: const Text('Select Image'),
                             ),
 
-                            // If an image path is set, display the image using Image.file
-                            if (imagePath != null)
-                                Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Image.file(
-                                        File(imagePath!), // Display the image using Image.file
-                                        height: 200, // You can set the height as per your requirements
-                                        width: double.infinity, // Fill the width of the dialog
-                                        fit: BoxFit.cover, // Choose the fit mode as per your preference
-                                    ),
-                                    
-                                ),
-
-                            // Other input fields for title, description, and price
                             TextField(
                                 controller: titleController,
                                 decoration: const InputDecoration(labelText: 'Category Title'),
