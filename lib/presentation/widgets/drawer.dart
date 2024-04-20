@@ -8,12 +8,13 @@ class AppDrawer extends StatelessWidget {
       child: Column(
         children: [
           UserAccountsDrawerHeader(
-
             decoration: const BoxDecoration(),
-            accountName: const Text('Full Name', style: TextStyle(color: Colors.black)),
-            accountEmail: const Text('user@example.com', style: TextStyle(color: Colors.black)),
-            currentAccountPicture: const CircleAvatar(child: Icon(Icons.person)),
-            
+            accountName:
+                const Text('Full Name', style: TextStyle(color: Colors.black)),
+            accountEmail: const Text('user@example.com',
+                style: TextStyle(color: Colors.black)),
+            currentAccountPicture:
+                const CircleAvatar(child: Icon(Icons.person)),
           ),
           ListTile(
             onTap: () {
