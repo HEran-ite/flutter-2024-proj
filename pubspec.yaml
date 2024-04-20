@@ -30,8 +30,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  carousel_slider: ^4.0.0
-  file_picker: ^4.6.1
   smooth_page_indicator: ^1.0.0
   google_fonts: 6.2.1
   
