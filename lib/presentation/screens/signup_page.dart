@@ -9,7 +9,7 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
-  List<bool> _isSelected = [true, false];
+  List<bool> _isSelected = [true,false];
   @override
   Widget build(BuildContext context) {
     // Determine screen size
@@ -45,7 +45,7 @@ class _SignUpPageState extends State<SignUpPage> {
               ),
             ),
 
-            const SizedBox(height: 10),
+            const SizedBox(height:10),
 
             Center(
               child: ToggleButtons(
@@ -65,7 +65,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 children: const <Widget>[
                   Padding(
                     padding:EdgeInsets.all(10.0),
-                    child: Text('Admin'), // Text for the first toggle button
+                    child: Text('ADMIN'), // Text for the first toggle button
                   ),
                   Padding(
                     padding: EdgeInsets.all(10.0),
@@ -88,7 +88,7 @@ class _SignUpPageState extends State<SignUpPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children:[ const Text(
-                'Already have an account? ',
+                'Already have an account?',
                 style: TextStyle(
                   color: Color.fromARGB(255, 95, 65, 65),
                   fontSize: 14,
