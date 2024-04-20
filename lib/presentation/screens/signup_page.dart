@@ -12,7 +12,8 @@ class _SignUpPageState extends State<SignUpPage> {
   List<bool> _isSelected = [true,false];
   @override
   Widget build(BuildContext context) {
-    // Determine screen size
+       
+        // Determine screen size
     Size screenSize = MediaQuery.of(context).size;
 
     return Scaffold(
@@ -88,8 +89,8 @@ class _SignUpPageState extends State<SignUpPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children:[ const Text(
-                'Already have an account?',
-                style: TextStyle(
+                'Already have an Account?',
+                style:  TextStyle(
                   color: Color.fromARGB(255, 95, 65, 65),
                   fontSize: 14,
                   fontWeight: FontWeight.w200,
@@ -102,7 +103,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 Navigator.pushNamed(context, '/login_page');
               },
               child: const Text(
-                'LOGIN',
+                'LOG IN',
                 style: TextStyle(
                   color: Color.fromARGB(255, 95, 65, 65),
                   fontSize: 14,
