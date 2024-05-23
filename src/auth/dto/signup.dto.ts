@@ -1,4 +1,5 @@
-import {IsNotEmpty ,IsString, IsEmail, MinLength} from "class-validator";
+import {IsNotEmpty ,IsString, IsEmail, MinLength, IsEnum} from "class-validator";
+import { Role } from "../user/schemas/user.schema";
 
 export class SignUpDto {
     @IsNotEmpty()
@@ -13,5 +14,10 @@ export class SignUpDto {
     @IsString()
     @MinLength(6)
     readonly password : string;
+
+    @IsNotEmpty()
+    @IsEnum(Role)
+    readonly role : Role;
+
 
 }

@@ -2,7 +2,7 @@ import { BadRequestException, Injectable, NotFoundException } from '@nestjs/comm
 import {InjectModel} from "@nestjs/mongoose";
 import * as mongoose from "mongoose";
 import {Room} from './schemas/room.schema';
-import { User } from 'src/auth/schemas/user.schema';
+import { User } from 'src/auth/user/schemas/user.schema';
 
 @Injectable()
 export class RoomService {
@@ -15,7 +15,7 @@ export class RoomService {
         return rooms;
     }
     async create(room:Room ,user:User): Promise<Room>{
-        
+
         const data =Object.assign(room,{user:user._id})
         const res = await this.roomModel.create(room)
         return res
@@ -34,7 +34,8 @@ export class RoomService {
         return room;
     }
 
-    async updateById(id:string,room:Room): Promise<Room>{
+    async updateById(id:string,room:Room,user:User): Promise<Room>{
+        const data =Object.assign(room,{user:user._id})
         return await this.roomModel.findByIdAndUpdate(id,room,{
             new :true,
             runValidators:true,
@@ -43,7 +44,8 @@ export class RoomService {
 
     }
 
-    async deleteById(id:string): Promise<Room>{
+    async deleteById(id:string,user:User): Promise<Room>{
+        const data =Object.assign(id,{user:user._id})
         return await this.roomModel.findByIdAndDelete(id);
 
 

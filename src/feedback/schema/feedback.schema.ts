@@ -3,8 +3,11 @@ import { Document } from 'mongoose';
 
 export type FeedbackDocument = Feedback & Document;
 
-@Schema()
+@Schema(  {timestamps:true,})
 export class Feedback {
+
+
+
   @Prop({ required: true })
   customerName: string;
 
