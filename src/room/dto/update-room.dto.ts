@@ -4,20 +4,24 @@ import {IsOptional ,IsString,IsNumber,IsEnum, IsEmpty} from "class-validator";
 export class UpdateRoomDto {
     @IsOptional()
     @IsString()
-    readonly title : string;
+    readonly title: string;
 
     @IsOptional()
     @IsString()
-    readonly description : string;
+    readonly description: string;
 
     @IsOptional()
     @IsNumber()
-    readonly price : number;
+    readonly price: number;
 
     @IsOptional()
-    @IsEnum(Category,{message:"please enter correct category."})
-    readonly category : Category;
+    @IsEnum(Category, { message: "Please enter the correct category." })
+    readonly category: Category;
 
-    @IsEmpty({message:'you cannot pass user id.'})
-    readonly user :User
+    @IsEmpty({ message: 'You cannot pass user ID.' })
+    readonly user: User;
+
+    @IsOptional()
+    @IsString()
+    readonly image: string;  // Optional for updates
 }

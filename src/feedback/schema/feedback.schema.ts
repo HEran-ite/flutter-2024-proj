@@ -14,6 +14,9 @@ export class Feedback {
   @Prop()
   message: string;
 
+  @Prop()
+  rating: Number;
+
   @Prop({ default: Date.now })
   createdAt: Date;
 }

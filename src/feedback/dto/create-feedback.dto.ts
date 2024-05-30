@@ -1,4 +1,4 @@
-import {IsNotEmpty ,IsString} from "class-validator";
+import {IsNotEmpty ,IsNumber,IsString} from "class-validator";
 
 export class CreateFeedbackDto {
     @IsNotEmpty()
@@ -8,5 +8,9 @@ export class CreateFeedbackDto {
     @IsNotEmpty()
     @IsString()
     message?: string;
+
+    @IsNotEmpty()
+    @IsNumber()
+    rating?: Number;
   }
   

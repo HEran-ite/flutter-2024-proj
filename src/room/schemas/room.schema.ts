@@ -1,33 +1,37 @@
-import{Prop,Schema,SchemaFactory} from "@nestjs/mongoose";
+import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import mongoose from "mongoose";
 import { User } from "src/auth/user/schemas/user.schema";
 
-export enum Category{
-    VIP="VIP",
-    MIDDLE="Middle",
-    ECONOMY="Economy"
+export enum Category {
+    VIP = "VIP",
+    MIDDLE = "Middle",
+    ECONOMY = "Economy"
 }
 
 @Schema({
-    timestamps:true,
+    timestamps: true,
 })
 
-export class Room{
+export class Room {
     @Prop()
-    title:string;
+    title: string;
 
     @Prop()
-    description:string;
+    description: string;
 
     @Prop()
-    price:number;
+    price: number;
+
+    @Prop({ enum: Category })
+    category: Category;
+
+    @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'User' })
+    user: User;
 
     @Prop()
-    category:Category;
-
-    @Prop({type:mongoose.Schema.Types.ObjectId ,ref:'User'})
-    user:User;
-    
+    image: string;  // Adding an image property
 }
 
-export const RoomSchema =SchemaFactory.createForClass(Room)
+export const RoomSchema = SchemaFactory.createForClass(Room);
+export { User };
+
